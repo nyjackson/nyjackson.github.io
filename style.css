@@ -44,6 +44,7 @@ img {
   letter-spacing: 1px;
   font-weight: lighter;
   text-align: left;
+  letter-spacing: 5px;
 }
 @media only screen and (max-width: 550px) {
   .header {
