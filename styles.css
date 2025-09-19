@@ -241,6 +241,22 @@
             font-size: 0.85rem;
             font-weight: 500;
         }
+        .internship-tag {
+            background: #F0EBFA;
+            color: #47238E;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .ps-tag {
+            background: #EBF5FA;
+            color: #236A8E;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
 
         .project-links {
             display: flex;
