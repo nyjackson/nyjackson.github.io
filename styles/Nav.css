@@ -1,0 +1,62 @@
+.logo {
+  font-family: 'Fraunces';
+}
+.logo-first { font-weight: 300; }
+.logo-last  { font-weight: 500; }
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height); /* 60px from theme.css */
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+  display: flex;
+  align-items: center; /* vertical centering */
+  justify-content: space-between; /* logo left, links right */
+  padding: 0 var(--space-5);
+}
+
+.nav-links {
+font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);          /* space between each link */
+  list-style: none;   
+  justify-content: center;
+}
+
+.nav-links a{
+color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-links a:hover{
+    color: var(--color-text);
+}
+
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  color: var(--color-text);
+}
