@@ -50,7 +50,7 @@ export interface ProjectLink {
 /**
  * A single screenshot for a project.
  * src    → path relative to /public/screenshots/ in your Vite project.
- *          e.g. 'portal-landing.png' resolves to /public/screenshots/portal-landing.png
+ *          e.g. 'home.png' resolves to /public/screenshots/home.png
  * alt    → descriptive alt text for accessibility and SEO — be specific.
  * caption → optional short label shown below the image in the lightbox/gallery.
  *

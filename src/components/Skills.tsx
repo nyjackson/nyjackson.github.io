@@ -1,8 +1,9 @@
 import {SKILL_GROUPS} from '../constants'
 import '../../styles/Skills.css'
+import type { ReactNode } from 'react';
 import { Terminal, Layout, Database, Cloud, Settings, Brain } from 'lucide-react';
 
-const iconMap:Record<string, any> = {
+const iconMap: Record<string, ReactNode> = {
   Backend: <Terminal size={16} />,
   Frontend: <Layout size={16} />,
   Database: <Database size={16} />,

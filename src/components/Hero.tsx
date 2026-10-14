@@ -10,9 +10,6 @@ const Hero = () => {
 
   useEffect(() => {
     let i = 0;
-    setDisplayed("");
-    setDone(false);
-
     const interval = setInterval(() => {
       if (i < TERMINAL_OUTPUT.length) {
         setDisplayed(TERMINAL_OUTPUT.slice(0, i + 1));
@@ -38,15 +35,15 @@ const Hero = () => {
             <p className="hero-subtitle">{HERO.subtitle}</p>
             <p className="hero-bio">{HERO.bio}</p>
             <div className="hero-links">
-              <a href="https://github.com/nyjackson" target="_blank" rel="noreferrer" className="hero-link">
+              <a href={HERO.links.github} target="_blank" rel="noreferrer" className="hero-link">
                 <Github size={16} />
                 GitHub
               </a>
-              <a href="https://linkedin.com/in/nyalajackson" target="_blank" rel="noreferrer" className="hero-link">
+              <a href={HERO.links.linkedin} target="_blank" rel="noreferrer" className="hero-link">
                 <Linkedin size={16} />
                 LinkedIn
               </a>
-              <a href="mailto:nymjackson@gmail.com" className="hero-link">
+              <a href={`mailto:${HERO.links.email}`} className="hero-link">
                 <Mail size={16} />
                 Email
               </a>
@@ -62,7 +59,7 @@ const Hero = () => {
                 <span className="terminal-dot dot-red" />
                 <span className="terminal-dot dot-yellow" />
                 <span className="terminal-dot dot-green" />
-                <span className="terminal-filename">identitySync.ts — DRY RUN</span>
+                <span className="terminal-filename">identitySync.ts — DRY RUN · sample data</span>
               </div>
               <pre className="terminal-body">
                 {displayed}
