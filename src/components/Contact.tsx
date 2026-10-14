@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { HERO } from '../constants';
 import '../../styles/Contact.css';
 
 const Contact = () => {
@@ -31,9 +32,11 @@ const Contact = () => {
         const errorData = await response.json();
         throw new Error(errorData.errors?.[0]?.message || 'Submission failed.');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus('ERROR');
-      setErrorMessage(err.message || 'Something went wrong. Please try again.');
+      setErrorMessage(
+        (err instanceof Error && err.message) || 'Something went wrong. Please try again.'
+      );
     }
   };
 
@@ -49,8 +52,8 @@ const Contact = () => {
           </p>
           <div className="contact-method">
             <Mail size={16} className="text-accent" />
-            <a href="mailto:nymjackson@gmail.com" className="contact-email">
-              nymjackson@gmail.com
+            <a href={`mailto:${HERO.links.email}`} className="contact-email">
+              {HERO.links.email}
             </a>
           </div>
         </div>

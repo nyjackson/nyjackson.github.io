@@ -33,23 +33,24 @@ export const HERO = {
   },
 };
 
-export const TERMINAL_OUTPUT = `--- 🧩 IDENTITY SYNC [patient] [MODE: DRY] --- 
+// Illustrative output on synthetic sample data — not figures from a real system.
+export const TERMINAL_OUTPUT = `--- 🧩 IDENTITY SYNC [MODE: DRY] [SAMPLE DATA] ---
 
-✓ Verified:   8,412 existing records
-🔗 Linking:   Mapping Legacy ID 4821 → PG UUID
-🔗 Linking:   Mapping Legacy ID 7103 → PG UUID
-⚠️ Collision: Legacy ID 2947 → wrong user. Unlinking.
-+ Created:    892 new profiles
+✓ Verified:   1,200 existing records
+🔗 Linking:   Mapping legacy L-0042 → UUID
+🔗 Linking:   Mapping legacy L-0107 → UUID
+⚠️ Collision: legacy L-0093 → wrong owner. Unlinking.
++ Created:    150 new profiles
 
 ============================================
 🏁 SYNC SUMMARY
 ┌─────────────────────┬────────┐
-│ Total Processed     │ 31,408 │
-│ Verified Existing   │ 8,412  │
-│ Linked by PII       │  6,231 │
-│ Created New         │    892 │
-│ Collisions Unlinked │     12 │
-│ Skipped (Junk)      │     47 │
+│ Total Processed     │  2,000 │
+│ Verified Existing   │  1,200 │
+│ Linked by Match     │    600 │
+│ Created New         │    150 │
+│ Collisions Unlinked │     10 │
+│ Skipped (Junk)      │     40 │
 └─────────────────────┴────────┘
 ============================================`
 
@@ -125,7 +126,7 @@ export const PROJECTS: Project[] = [
     title: 'Identity Reconciliation & Recovery Engine',
     year: '2026',
     description:
-      'A TypeScript/SQL toolset for resolving data fragmentation across a legacy healthcare system. Uses PII-safe fingerprinting (Name + DOB / SSN4) to deduplicate patient profiles, elect canonical winner records, and migrate all associated documents transactionally. A separate S3 crawler acts as a safety net to heal any database records missing a physical S3 counterpart.',
+      'A TypeScript/SQL toolset for resolving data fragmentation across a legacy healthcare system. Uses PII-safe fingerprinting to deduplicate patient profiles, elect canonical winner records, and migrate all associated documents transactionally. A separate S3 crawler acts as a safety net to heal any database records missing a physical S3 counterpart.',
     tags: ['professional', 'infrastructure'],
     techStack: ['TypeScript', 'PostgreSQL', 'MySQL', 'AWS S3', 'Drizzle ORM', 'Node.js'],
     stats: [
