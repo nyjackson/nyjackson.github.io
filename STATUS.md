@@ -30,6 +30,9 @@ start from the workspace root, whose `CLAUDE.md` loads the workspace rules.
   (20 px, accent) with the inline styles moved to CSS · skill-card accent top strip and hover
   border now render (a misspelled CSS variable had hidden both) · theme follows the OS until the
   visitor toggles · owner's NJ favicon (transparent, light/dark aware).
+  - ✅ 2026-10-25: merged (PR #2, merge commit 77981a2) and deployed; checked on the live site
+    after deploy — logo 24 px, skill strip, theme follows the OS until a click, favicon
+    `[verified: headless Chrome]`.
 - 2026-10-14 — P1: employer screenshots removed, `tsc -b` back in the build, CI lints and builds
   PRs (PR #1, merge commit 482f554).
 
