@@ -14,13 +14,15 @@ const ProjectGrid = () => {
   return (
     <section className="projects" id="projects">
       {/* Structural alignment matching the exact pattern used in Skills section */}
-      <p className="section-eyebrow">Selected Projects</p>
+      <h2 className="section-eyebrow">Selected Projects</h2>
       
       <div className="projects-header-group">
-        <div className="filter-bar">
+        <div className="filter-bar" role="group" aria-label="Filter projects">
           {FILTER_CATEGORIES.map((cat) => (
             <button 
               key={cat.value}
+              type="button"
+              aria-pressed={activeFilter === cat.value}
               className={`filter-pill ${activeFilter === cat.value ? 'active' : ''}`}
               onClick={() => setActiveFilter(cat.value)}
             >
