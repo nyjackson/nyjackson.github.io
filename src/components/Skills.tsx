@@ -4,29 +4,24 @@ import type { ReactNode } from 'react';
 import { Terminal, Layout, Database, Cloud, Settings, Brain } from 'lucide-react';
 
 const iconMap: Record<string, ReactNode> = {
-  Backend: <Terminal size={16} />,
-  Frontend: <Layout size={16} />,
-  Database: <Database size={16} />,
-  Cloud: <Cloud size={16} />,
-  Tooling: <Settings size={16} />,
-  Concepts: <Brain size={16} />
+  Backend: <Terminal size={20} />,
+  Frontend: <Layout size={20} />,
+  Database: <Database size={20} />,
+  Cloud: <Cloud size={20} />,
+  Tooling: <Settings size={20} />,
+  Concepts: <Brain size={20} />
 };
 
 const Skills = () => {
   return (
     <section className="skills" id="about">
-      <p className="section-eyebrow">Skills</p>
+      <h2 className="section-eyebrow">Skills</h2>
       <div className="skills-grid">
         {SKILL_GROUPS.map((group) => (
-          <div className="skill-card" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }} key={group.label}>
+          <div className="skill-card" key={group.label}>
             {/* Display the Category Header once using the Display font */}
             {iconMap[group.label]}
-            <p 
-              className="skill-label" 
-              style={{ fontFamily: 'var(--font-display)', fontWeight: 600 }}
-            >
-              {group.label}
-            </p>
+            <h3 className="skill-label">{group.label}</h3>
 
             {/* Loop through the skills within this category */}
             <ul className="skill-list">

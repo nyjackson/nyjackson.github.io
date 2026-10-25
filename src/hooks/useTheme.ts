@@ -38,10 +38,11 @@ function applyTheme(theme: Theme) {
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
-  // Apply theme to <html> whenever it changes
+  // Apply theme to <html> whenever it changes. Saving happens only in
+  // toggleTheme: a key written here would count as a manual choice on the
+  // very first render and stop the OS sync below from ever firing.
   useEffect(() => {
     applyTheme(theme);
-    localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
   // Sync with OS preference changes (e.g. user switches system theme
@@ -62,7 +63,9 @@ export function useTheme() {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+    const next = theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(STORAGE_KEY, next);
+    setTheme(next);
   };
 
   return { theme, toggleTheme };

@@ -23,17 +23,28 @@
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   transition: all var(--transition-fast);
-  border-top: 3px solid var(--color-accent-mid);
+  border-top: 3px solid var(--accent-mid);
   padding-top: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .skill-card:hover {
-  border-color: var(--color-accent-mid);
+  border-color: var(--accent-mid);
   transform: translateY(-2px);
+}
+
+/* Flex items shrink by default; without this the icon is squeezed in cards with long skill lists. */
+.skill-card > svg {
+  flex-shrink: 0;
+  color: var(--accent-mid); /* matches the card's top border */
 }
 
 .skill-label {
   font-family: var(--font-display);
+  font-size: inherit; /* an h3 for the outline, sized like the body text it replaced */
   font-weight: 600;
   color: var(--color-text);
 }

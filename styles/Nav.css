@@ -1,5 +1,6 @@
 .logo {
   font-family: 'Fraunces';
+  font-size: 1.5rem; /* the size it had as an <h2>; it is a <p> so the page's first heading is the h1 */
 }
 .logo-first { font-weight: 300; }
 .logo-last  { font-weight: 500; }
@@ -59,4 +60,11 @@ color: var(--color-text-muted);
 
 .theme-toggle:hover {
   color: var(--color-text);
+}
+
+/* Holds the link list and the theme toggle side by side; the toggle is not a list item. */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
 }

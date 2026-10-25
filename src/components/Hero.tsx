@@ -5,10 +5,15 @@ import { HERO, TERMINAL_OUTPUT } from "../constants";
 import '../../styles/Hero.css'
 
 const Hero = () => {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
+  // Read once: with reduced motion the terminal shows its full output and never types.
+  const [reduceMotion] = useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  const [displayed, setDisplayed] = useState(reduceMotion ? TERMINAL_OUTPUT : "");
+  const [done, setDone] = useState(reduceMotion);
 
   useEffect(() => {
+    if (reduceMotion) return;
     let i = 0;
     const interval = setInterval(() => {
       if (i < TERMINAL_OUTPUT.length) {
@@ -21,7 +26,7 @@ const Hero = () => {
     }, 18); // ms per character — adjust to taste
 
     return () => clearInterval(interval);
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <section className="hero">

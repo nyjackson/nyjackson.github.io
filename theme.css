@@ -11,8 +11,8 @@
 
   /* Text */
   --color-text:             #1A1917;   
-  --color-text-muted:       #857F74;   
-  --color-text-faint:       #B0A99F;   
+  --color-text-muted:       #6A655C;   
+  --color-text-faint:       #B0A99F;   /* decoration only: fails 4.5:1 as text (owner, 2026-10-25) */
 
   /* Accents */
   --accent:                 #003B6F;   
@@ -61,7 +61,7 @@
 
   --color-text:             #FCFCFC;   
   --color-text-muted:       #9AADBF;   
-  --color-text-faint:       #5C6B7A;   
+  --color-text-faint:       #5C6B7A;   /* decoration only: fails 4.5:1 as text */
 
   --accent:                 #6D98BA;   
   --accent-mid:             #9AADBF;   
@@ -81,8 +81,26 @@
 }
 
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
+}
+
+/* Smooth anchor scrolling only for visitors who haven't asked the OS to reduce motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .skill-card:hover, .project-card:hover { transform: none; }
+}
+
+/* Keyboard focus ring. :focus-visible skips mouse clicks, so pointer users never see it. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 body {
